@@ -5,14 +5,7 @@
    
   
   "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-        
-      }
-    },
+    
     {
       "src": "blogServerDjango/wsgi.py",
       "use": "@vercel/python"
