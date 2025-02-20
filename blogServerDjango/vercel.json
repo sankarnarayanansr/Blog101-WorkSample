@@ -1,7 +1,14 @@
 {
   "version": 2,
   "builds": [
-    
+    {
+      "src": "static/Ui/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "installCommand": "./build.sh",
+        "distDir": "build"
+      }
+    },
  
     {
       "src": "blogServerDjango/wsgi.py",
