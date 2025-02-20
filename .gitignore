@@ -1,0 +1,4 @@
+./blog101Server/__pycache__
+./blog101Server/env
+./blog101Server/Ui/node_modules
+.vercel

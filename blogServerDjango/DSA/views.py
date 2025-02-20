@@ -6,21 +6,30 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 import platform
 import json
-sJsonPath = '/blog101Server/playwright_scrap/ques.json'
+import os
+from django.conf import settings
+
+# Get the correct file path
+sJsonPath = os.path.join(settings.BASE_DIR, 'static' , 'ques.json')
+
+
+
+# Print results
+
 if platform.system() == 'Windows':
     sJsonPath = sJsonPath.replace('/','\\')
 @method_decorator(csrf_exempt, name='dispatch')
 class FetchData(View):
     _lastUpdated = None
     def getData(self):
-        if self._lastUpdated is None:
-            self._lastUpdated = getFileLastUpdate(sJsonPath)
-            self.data = getDataFromFile(sJsonPath)
-        else:
-            sCurrLastUpdate = getFileLastUpdate(sJsonPath)
-            if sCurrLastUpdate != self._lastUpdated:
-                self._lastUpdated = sCurrLastUpdate
-                self.data = getDataFromFile(sJsonPath)
+        # if self._lastUpdated is None:
+        #     self._lastUpdated = getFileLastUpdate(sJsonPath)
+        #     self.data = getDataFromFile(sJsonPath)
+        # else:
+        #     sCurrLastUpdate = getFileLastUpdate(sJsonPath)
+        #     if sCurrLastUpdate != self._lastUpdated:
+        #         self._lastUpdated = sCurrLastUpdate
+        self.data = getDataFromFile(sJsonPath)
                 
     def filterByRange(self , data , limits):
         dFilteredData = {}

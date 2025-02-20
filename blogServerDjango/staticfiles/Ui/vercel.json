@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+        
+      }
+    },
+    {
+      "src": "blogServerDjango/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "handle": "filesystem"
+    }, 
+    {
+   
+      "src": "^/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/Ui/build/index.html"
+    }
+  ]
+  
+} 

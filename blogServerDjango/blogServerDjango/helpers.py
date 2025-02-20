@@ -7,8 +7,8 @@ def getCurrDir():
     return os.path.dirname(os.path.dirname(current_dir))
 
 def getDataFromFile(sFile):
-    sFile = getCurrDir() + sFile
-    print(sFile)
+    
+    
     data = {}
     try:
         with open(sFile, 'r') as f:
