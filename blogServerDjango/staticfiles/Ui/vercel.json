@@ -1,5 +1,8 @@
 {
   "version": 2,
+ 
+    "buildCommand": "echo '✅ Vercel buildCommand is working!'",
+   
   
   "builds": [
     {
