@@ -2,6 +2,10 @@
   "version": 2,
   "builds": [
     {
+      "src": "blogServerDjango/static/Ui/package.json",
+      "use": "@vercel/static-site"
+    },
+    {
       "src": "blogServerDjango/wsgi.py",
       "use": "@vercel/python"
     }
